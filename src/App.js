@@ -19,6 +19,7 @@ import Login from './resource/auth/Signin';
 import Signup from './resource/auth/Signup';
 // Private Page
 import Dashboard from './resource/dashboard/Dashboard';
+import Profile from './resource/profile/Profile';
 
 
 const PrivateRoute = () => {
@@ -48,6 +49,9 @@ export default function App() {
 
             <Route path='/dashboard' element={<PrivateRoute/>}>
               <Route path="/dashboard" element={<Dashboard/>}/>
+            </Route>
+            <Route path='/profile' element={<PrivateRoute/>}>
+              <Route path="/profile" element={<Profile/>}/>
             </Route>
 
           </Routes>

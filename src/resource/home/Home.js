@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'react-bootstrap/Image'
 import Headimg from '../../assets/img/head-img.png';
 
-import Fronttab from '../components/Fronttab';
+import Noauthtab from '../components/Noauthtab';
 
 function Home() {
 
@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <div className="App">
-        <Fronttab/>
+        <Noauthtab/>
         <div className='container' style={{paddingTop : '5%'}}>
           <div className='row'>
             

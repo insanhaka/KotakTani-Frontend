@@ -11,7 +11,7 @@ import { mdiAccountBox } from '@mdi/js';
 import '../../assets/css/tab-active.css';
 
 
-function Fronttab() {
+function Noauthtab() {
   return (
     <React.Fragment>
     <Nav className="navbar bg-navbar-theme navbar-expand-lg px-0 mx-4 border-radius-xl mt-3 fixed-bottom" id="navbarBlur" navbar-scroll="true">
@@ -94,4 +94,4 @@ function Fronttab() {
   );
 }
 
-export default Fronttab;
+export default Noauthtab;

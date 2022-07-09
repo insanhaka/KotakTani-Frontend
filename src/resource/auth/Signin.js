@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
 import Headimg from '../../assets/img/head-img.png';
 import {
-  Link
+  Link,
+  useNavigate,
 } from "react-router-dom";
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useSelector } from 'react-redux';
 import '../../assets/css/signin.css';
 
-import Fronttab from '../components/Fronttab';
+import Noauthtab from '../components/Noauthtab';
 
 function Signin() {
 
   const apiUrl = useSelector(state => state.ApiReducer);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  let navigate = useNavigate();
 
   const submit = () => {
 
@@ -25,9 +30,8 @@ function Signin() {
             showConfirmButton: false,
             timer: 2500
         })
-        setLoading(false);
     }else {
-        axios.post(apiUrl.url+'/postlogin', {
+        axios.post(apiUrl.url+'postlogin', {
             email: email,
             password: password
         })
@@ -43,8 +47,7 @@ function Signin() {
                     showConfirmButton: false,
                     timer: 2000
                 })
-                setLoading(false);
-                history.push("/dashboard");
+                navigate("/dashboard", { replace: true });
 
             }else if (res === "error") {
                 Swal.fire({
@@ -53,7 +56,6 @@ function Signin() {
                     showConfirmButton: false,
                     timer: 2500
                 })
-                setLoading(false);
             }else {
                 Swal.fire({
                     icon: 'warning',
@@ -61,7 +63,6 @@ function Signin() {
                     showConfirmButton: false,
                     timer: 2500
                 })
-                setLoading(false);
             }
         })
         .catch(function (error) {
@@ -72,14 +73,13 @@ function Signin() {
                 showConfirmButton: false,
                 timer: 2500
             })
-            setLoading(false);
         });
     }
 }
 
   return (
     <div className="App">
-        <Fronttab/>
+        <Noauthtab/>
         
         <div className="page-header min-vh-75">
           <div className="container" style={{paddingTop : '3%'}}>
@@ -95,26 +95,24 @@ function Signin() {
                     <h3 className="font-weight-bolder">Masuk</h3>
                   </div>
                   <div className="card-body">
-                      <form role="form">
-                          <label>Email</label>
-                          <div className="mb-3">
-                              <Form.Control type="text" className="form-control" placeholder="Email kamu" id="email" onChange={(event)=> setEmail(event.target.value)} />
-                          </div>
-                          <label>Password</label>
-                          <div className="mb-3">
-                              <Form.Control type="password" className="form-control" placeholder="Password" id="password" onChange={(event)=> setPassword(event.target.value)} />
-                          </div>
-                          <div className="text-center">
-                              <button onClick={submit} className="btn w-100 mt-4 mb-0" style={{backgroundColor: '#778beb', color: '#fff'}}>Masuk</button>
-                          </div>
-                      </form>
-                      <br/>
-                      <div className="card-footer text-center pt-0 px-lg-2 px-1">
-                          <p className="mb-4 text-sm mx-auto">
-                              Belum mempunyai akun?
-                              <Link to="/daftar" className="font-weight-bold" style={{marginLeft: '4%', color: '#546de5'}}> Daftar</Link>
-                          </p>
-                      </div>
+                        <label>Email</label>
+                        <div className="mb-3">
+                            <Form.Control type="text" className="form-control" placeholder="Email kamu" id="email" onChange={(event)=> setEmail(event.target.value)} />
+                        </div>
+                        <label>Password</label>
+                        <div className="mb-3">
+                            <Form.Control type="password" className="form-control" placeholder="Password" id="password" onChange={(event)=> setPassword(event.target.value)} />
+                        </div>
+                        <div className="text-center">
+                            <button onClick={submit} className="btn w-100 mt-4 mb-0" style={{backgroundColor: '#778beb', color: '#fff'}}>Masuk</button>
+                        </div>
+                        <br/>
+                        <div className="card-footer text-center pt-0 px-lg-2 px-1">
+                            <p className="mb-4 text-sm mx-auto">
+                                Belum mempunyai akun?
+                                <Link to="/signup" className="font-weight-bold" style={{marginLeft: '4%', color: '#546de5'}}> Daftar</Link>
+                            </p>
+                        </div>
                   </div>
                 </div>
               </div>

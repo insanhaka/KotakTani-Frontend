@@ -1,11 +1,14 @@
 import React from 'react'
 
+import Authtab from '../components/Authtab';
+
 function Dashboard() {
   return (
     <div className="App">
-        <p>
-          Dashboard Page
-        </p>
+      <Authtab/>
+      <p>
+        Dashboard Page
+      </p>
     </div>
   );
 }
