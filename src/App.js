@@ -20,6 +20,8 @@ import Signup from './resource/auth/Signup';
 // Private Page
 import Dashboard from './resource/dashboard/Dashboard';
 import Profile from './resource/profile/Profile';
+import Farm from './resource/farm/Farm';
+import Device from './resource/device/Device';
 
 
 const PrivateRoute = () => {
@@ -49,6 +51,12 @@ export default function App() {
 
             <Route path='/dashboard' element={<PrivateRoute/>}>
               <Route path="/dashboard" element={<Dashboard/>}/>
+            </Route>
+            <Route path='/device' element={<PrivateRoute/>}>
+              <Route path="/device" element={<Device/>}/>
+            </Route>
+            <Route path='/farm' element={<PrivateRoute/>}>
+              <Route path="/farm" element={<Farm/>}/>
             </Route>
             <Route path='/profile' element={<PrivateRoute/>}>
               <Route path="/profile" element={<Profile/>}/>

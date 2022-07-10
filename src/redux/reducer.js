@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
 
 const ApiAddress = {
-    url: 'http://localhost:8000/api/'
+    // url: 'http://localhost:8000/api/'
+    url: 'http://192.168.0.103:8000/api/'
 }
 const ApiReducer = (state = ApiAddress , action) => {
     return state;

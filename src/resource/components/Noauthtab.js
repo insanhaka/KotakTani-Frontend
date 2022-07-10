@@ -14,7 +14,7 @@ import '../../assets/css/tab-active.css';
 function Noauthtab() {
   return (
     <React.Fragment>
-    <Nav className="navbar bg-navbar-theme navbar-expand-lg px-0 mx-4 border-radius-xl mt-3 fixed-bottom" id="navbarBlur" navbar-scroll="true">
+    <Nav className="navbar navbar-expand-lg px-0 mx-4 border-radius-xl mt-3 fixed-bottom" id="navbarBlur" navbar-scroll="true" style={{ backgroundColor : '#fff' }}>
         <div className="container-fluid py-1 px-3">
             <div className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <ul className="navbar-nav nav-justified w-100">
@@ -55,7 +55,7 @@ function Noauthtab() {
     </Nav>
 
     {/* Mobile Nav */}
-    <Nav className="navbar navbar-light navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none">
+    <Nav className="navbar navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style={{ backgroundColor : '#fff' }}>
         <ul className="navbar-nav nav-justified w-100">
         <li className="nav-item">
             <Link to="/" className="nav-link" id="home">
