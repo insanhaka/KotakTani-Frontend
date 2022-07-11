@@ -16,6 +16,7 @@ import Noauthtab from '../components/Noauthtab';
 function Signup() {
 
   const apiUrl = useSelector(state => state.ApiReducer);
+  const apiKey = useSelector(state => state.HeaderReducer);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,6 +36,10 @@ function Signup() {
         axios.post(apiUrl.url+'postlogin', {
             email: email,
             password: password
+        }, {
+            headers: {
+                'kotan-key': apiKey.key 
+            }
         })
         .then(function (response) {
             var res = response.data.message;
